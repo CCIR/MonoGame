@@ -482,7 +482,7 @@ namespace Microsoft.Xna.Framework.Graphics
                                 //							pos = ((y * imageSize.Width) + x) * sz;								
                                 //							pixelOffset = new IntPtr (imageData.ToInt64 () + pos);							
                                 pos = ((y * _width) + x) * sz;
-                                pixelOffset = texture.PixelData + pos;
+                                pixelOffset = new IntPtr(texture.PixelData.ToInt64() + pos);
                                 Marshal.Copy(pixelOffset, pixel, 0, 4);
                                 result.R = pixel[0];
                                 result.G = pixel[1];
@@ -692,7 +692,7 @@ namespace Microsoft.Xna.Framework.Graphics
                                 //pos = ((y * imageSize.Width) + x) * sz;								
                                 //pixelOffset = new IntPtr (imageData.ToInt64 () + pos);
                                 pos = ((y * _width) + x) * sz;
-                                pixelOffset = texture.PixelData + pos;
+                                pixelOffset = new IntPtr(texture.PixelData.ToInt64() + pos);
                                 Marshal.Copy(pixelOffset, pixel, 0, 4);
                                 result.R = pixel[0];
                                 result.G = pixel[1];
